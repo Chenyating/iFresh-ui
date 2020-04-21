@@ -2,6 +2,7 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <x-button type="primary">button</x-button>
+    <router-view></router-view>
   </div>
 </template>
 <script>
