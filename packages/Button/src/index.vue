@@ -1,12 +1,12 @@
 <template>
-  <div class="x-button">
+  <div class="if-button">
     <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'x-button',
+  name: 'if-button',
   props: {
     type: String
   }
@@ -14,10 +14,14 @@ export default {
 </script>
 
 <style scoped lang='less'>
-@import '../../base.less';
-  .x-button {
+@import './public/assets/style/index.less';
+  .if-button {
       display: inline-block;
       padding: 3px 6px;
-      background:@red;
+      background:#000000;
+      &:hover{
+        background:@c-dark-primary;
+        font-weight: bold;
+      }
   }
 </style>
