@@ -13,11 +13,11 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang='less'>
+@import '../../base.less';
   .x-button {
       display: inline-block;
       padding: 3px 6px;
-      background: #000;
-      color: #fff;
+      background:@red;
   }
 </style>
