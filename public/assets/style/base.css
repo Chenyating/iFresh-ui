@@ -1,3 +1,16 @@
-.bg {
-    background-color: green;
+/* 设置字体 */
+
+@font-face {
+    font-family: 'n-txt';
+    src: url('../trrf/OPPOSans-M.ttf')
+}
+
+@font-face {
+    font-family: 'b-txt';
+    src: url('../trrf/OPPOSans-B.ttf');
+}
+
+@font-face {
+    font-family: 'l-txt';
+    src: url('../trrf/OPPOSans-L.ttf')
 }

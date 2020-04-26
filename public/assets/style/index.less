@@ -1,4 +1,29 @@
 // 基础配置
-@import './base/color.less';
-@import './base/font.less';
-@import './base/text.less';
+@import './base/color.less';//颜色
+@import './base/text.less';//字号
+
+// 边距
+@d-mini:5px;
+@d-normal:15px;
+@d-middle:25px;
+@d-big:50px;
+
+@line-height:32px;
+@border-radius:4px;
+
+// 边框
+.border-all-c(@color){
+    border: solid 1px @color;
+}
+.border-all{
+    border: solid 1px @c-primary;
+}
+
+.border-all-dashed{
+    border: dashed 1px @c-primary;
+}
+
+// 阴影
+.border-shadow(@color){
+    box-shadow: 1px 1px 1px @color;
+}

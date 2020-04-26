@@ -1,8 +1,8 @@
 # iFresh-UI 组件库
 
 <ClientOnly>
-<ddd/>
-<if-button>22</if-button>
+<if-button type='primary'>22</if-button>
+<if-input type='primary'>22</if-input>
 </ClientOnly >
 
 ## 定义风格
