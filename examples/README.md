@@ -1,10 +1,5 @@
 # iFresh-UI 组件库
 
-<ClientOnly>
-<if-button type='primary'>22</if-button>
-<if-input type='primary'>22</if-input>
-</ClientOnly >
-
 ## 定义风格
 以小清新风格为定位的ui组件库；
 1. 风格：小清新

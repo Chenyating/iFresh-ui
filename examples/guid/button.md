@@ -13,3 +13,13 @@
 </ClientOnly >
 
 ## 幽灵风格
+
+<ClientOnly>
+<if-button ghost>Default</if-button>
+<if-button type="primary" ghost>Primary</if-button>
+<if-button type="dashed" ghost>Dashed</if-button>
+<if-button type="info" ghost>Info</if-button>
+<if-button type="success" ghost>Success</if-button>
+<if-button type="warning" ghost>Warning</if-button>
+<if-button type="error" ghost>Error</if-button>
+</ClientOnly >
