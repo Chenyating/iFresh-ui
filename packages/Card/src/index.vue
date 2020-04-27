@@ -1,7 +1,7 @@
 <template>
-<span class="if-card" :class="type">
+<div class="if-card" :class="type">
     <slot></slot>
-</span>
+</div>
 </template>
 
 <script>

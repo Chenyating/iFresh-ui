@@ -31,20 +31,16 @@ export default {
 
 <style lang="less" scoped>
 @import './public/assets/style/index.less';
+
 // 基础配置
 .btn {
     .t-content();
     .border-all();
     display: inline-block;
     text-align: center;
-    line-height: @line-height;
     padding: 0 @d-normal;
     border-radius: @border-radius;
     cursor: pointer;
-
-    &:hover {
-        opacity: .8;
-    }
 }
 
 .if-btn(@textColor, @borderColor, @bgColor) {
@@ -52,6 +48,11 @@ export default {
     .border-all-c(@borderColor);
     background: @bgColor;
     color: @textColor;
+
+    &:hover {
+        opacity: .8;
+        .border-shadow(@borderColor)
+    }
 }
 
 // 默认设置
@@ -60,8 +61,8 @@ export default {
 }
 
 .if-btn-primary {
-    .if-btn(@white, @c-primary, @c-primary);
-
+    .if-btn(@white, @white, @c-primary);
+    .border-shadow(@c-primary)
 }
 
 .if-btn-dashed {
@@ -94,7 +95,6 @@ export default {
 
 .btn-ghost {
     background: transparent;
-
     &:hover {
         background: #ffffff6b;
     }
@@ -108,6 +108,11 @@ export default {
 
 .if-btn-default-ghost {
     .if-btn-ghost(@c-content);
+
+    &:hover {
+        opacity: .8;
+        .border-shadow(@c-content)
+    }
 }
 
 .if-btn-primary-ghost {
