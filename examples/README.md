@@ -1,30 +1,39 @@
 # iFresh-UI 组件库
 
-## 定义风格
 以小清新风格为定位的ui组件库；
-1. 风格：小清新
 
-2. 颜色定义
-```less
-// 颜色
+## 颜色
 
-// 主色：绿色
-@c-primary:#c4deaa;// 正常绿色：
-@c-light-primary:#b5ddc7;// 轻绿色：
-@c-dark-primary:#19be6b;// 深绿色：
+### 主色 绿色
 
-// 辅助色：
-@c-info:#88c1ea;
-@c-success:#afcd50;
-@c-warning:#a07522;
-@c-error:#9b3844;
+iFresh-UI使用较为清新的绿色作为主色调，其中 Light Primary 常用于 hover，Dark Primary 常用于 active。
 
-// 中性色：
-@c-title:#2e5c77;;// 标题颜色：
-@c-content:#2c3e50;// 正文颜色：
-@c-disable:#c5c8ce;// 失效颜色
-@c-bg:#ffffff;// 背景颜色
-```
+<ClientOnly>
+<color color='#c4deaa' text='正常绿'/>
+<color color='#b5ddc7' text='轻绿色'/>
+<color color='#19be6b' text='深绿色'/>
+</ClientOnly >
+
+### 辅助色
+
+辅助色是具有代表性的颜色，常用于信息提示，比如成功、警告和失败。
+
+<ClientOnly>
+<color color='#a7d2f1' text='提示色'/>
+<color color='#afcd50' text='成功色'/>
+<color color='#ec9f45' text='警告色'/>
+<color color='#ff6779' text='错误色'/>
+</ClientOnly >
+
+### 中性色
+
+中性色常用于文本、背景、边框、阴影等，可以体现出页面的层次结构。
+
+<ClientOnly>
+<color color='#2e5c77' text='标题色'/>
+<color color='#2c3e50' text='正文色'/>
+<color color='#c5c8ce' text='失效色'/>
+</ClientOnly >
 
 2. 字体、字号。
 
