@@ -10,9 +10,9 @@
 iFresh-UI使用较为清新的绿色作为主色调，其中 Light Primary 常用于 hover，Dark Primary 常用于 active。
 
 <ClientOnly>
-<color color='#c4deaa' text='正常绿'/>
-<color color='#b5ddc7' text='轻绿色'/>
-<color color='#19be6b' text='深绿色'/>
+<f-color color='#c4deaa' text='正常绿'/>
+<f-color color='#b5ddc7' text='轻绿色'/>
+<f-color color='#19be6b' text='深绿色'/>
 </ClientOnly >
 
 ### 辅助色
@@ -20,10 +20,10 @@ iFresh-UI使用较为清新的绿色作为主色调，其中 Light Primary 常�
 辅助色是具有代表性的颜色，常用于信息提示，比如成功、警告和失败。
 
 <ClientOnly>
-<color color='#a7d2f1' text='提示色'/>
-<color color='#afcd50' text='成功色'/>
-<color color='#ec9f45' text='警告色'/>
-<color color='#ff6779' text='错误色'/>
+<f-color color='#a7d2f1' text='提示色'/>
+<f-color color='#afcd50' text='成功色'/>
+<f-color color='#ec9f45' text='警告色'/>
+<f-color color='#ff6779' text='错误色'/>
 </ClientOnly >
 
 ### 中性色
@@ -31,9 +31,9 @@ iFresh-UI使用较为清新的绿色作为主色调，其中 Light Primary 常�
 中性色常用于文本、背景、边框、阴影等，可以体现出页面的层次结构。
 
 <ClientOnly>
-<color color='#2e5c77' text='标题色'/>
-<color color='#2c3e50' text='正文色'/>
-<color color='#c5c8ce' text='失效色'/>
+<f-color color='#2e5c77' text='标题色'/>
+<f-color color='#2c3e50' text='正文色'/>
+<f-color color='#c5c8ce' text='失效色'/>
 </ClientOnly >
 
 2. 字体、字号。

@@ -1,6 +1,9 @@
 <template>
 <div :class="className">
-    <slot></slot>
+    <div>
+        <slot name="icon"></slot>
+        <slot></slot>
+    </div>
 </div>
 </template>
 
@@ -17,11 +20,16 @@ export default {
             type: Boolean,
             default: false
         },
+        disable: {
+            type: Boolean,
+            default: false
+        },
     },
     computed: {
         className() {
             return [`${preCls}-${this.type}`, {
-                [`${preCls}-${this.type}-ghost`]: this.ghost
+                [`${preCls}-${this.type}-ghost`]: this.ghost,
+                [`${preCls}-disable`]: this.disable,
             }]
         }
     },
@@ -95,8 +103,10 @@ export default {
 
 .btn-ghost {
     background: transparent;
+
     &:hover {
         background: #ffffff6b;
+        font-weight: bold;
     }
 }
 
@@ -110,7 +120,6 @@ export default {
     .if-btn-ghost(@c-content);
 
     &:hover {
-        opacity: .8;
         .border-shadow(@c-content)
     }
 }
@@ -144,5 +153,20 @@ export default {
 .if-btn-error-ghost {
     .if-btn-ghost(@c-error);
 
+}
+
+// 禁用模式
+.if-btn-disable {
+    background: #f1f2f4;
+    color: @c-disable;
+    cursor: not-allowed;
+    box-shadow: none;
+
+    &:hover {
+        box-shadow: none;
+        opacity: 1 !important;
+        background: #f1f2f4;
+        font-weight: normal;
+    }
 }
 </style>
