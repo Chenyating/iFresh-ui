@@ -1,5 +1,6 @@
 <template>
 <div class="if-input">
+    
     <input :placeholder='placeholder' :value="value" 
     @input="$emit('input',$event.target.value)" 
     />

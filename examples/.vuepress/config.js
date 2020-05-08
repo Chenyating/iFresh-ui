@@ -6,5 +6,6 @@ module.exports = {
             { text: '目次', link: '/catalog' },
             { text: 'Github', type: 'url', link: 'https://github.com/Chenyating' },
         ]
-    }
+    },
+    theme: 'ting'
 }
