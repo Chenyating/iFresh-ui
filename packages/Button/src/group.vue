@@ -1,56 +1,12 @@
 <template>
-<div :class="className">
-    <!-- <div class="flex-center"> -->
-    <!-- <Icon size='20' v-if="icon&&!right" :type='icon' :color='iconColor'/> -->
+<div class="if-btn-group">
     <slot></slot>
-    <!-- <Icon size='20' v-if="icon&&right" :type='icon' :color='iconColor'/> -->
-    <!-- </div> -->
 </div>
 </template>
 
 <script>
-import Icon from '../../Icon/src/index.vue'
-const preCls = `if-btn-group`
 export default {
     name: 'if-button-group',
-    components: {
-        Icon
-    },
-    props: {
-        iconColor: {
-            type: String,
-            default: '#afcd50'
-        },
-        type: {
-            type: String,
-            default: 'default'
-        },
-        ghost: {
-            type: Boolean,
-            default: false
-        },
-        disable: {
-            type: Boolean,
-            default: false
-        },
-        icon: {
-            type: String,
-            default: ''
-        },
-        right: {
-            type: Boolean,
-            default: false
-        }
-    },
-    computed: {
-        className() {
-            return [`${preCls}`, {
-                [`${preCls}-${this.type}-ghost`]: this.ghost,
-                [`${preCls}-disable`]: this.disable,
-            }]
-        }
-    },
-    mounted() {}
 }
 </script>
 

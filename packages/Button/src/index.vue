@@ -1,9 +1,9 @@
 <template>
-<div :class="className">
+<div :class="className" @click="$emit('click')">
     <div class="flex-center">
-        <Icon :size='20' v-if="icon&&!right" :type='icon' :color='iconColor'/>
+        <Icon size='20' v-if="icon&&!right" :type='icon' :color='iconColor'/>
         <slot></slot>
-        <Icon :size='20' v-if="icon&&right" :type='icon' :color='iconColor'/>
+        <Icon size='20' v-if="icon&&right" :type='icon' :color='iconColor'/>
     </div>
 </div>
 </template>
