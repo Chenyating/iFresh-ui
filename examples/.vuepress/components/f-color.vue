@@ -49,6 +49,6 @@ export default {
     border: 1px solid #f1f2f4;
     margin: 10px;
     color: #ffffff;
-    padding:20px 0;
+    padding: 20px 0;
 }
 </style>

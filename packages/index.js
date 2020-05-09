@@ -1,6 +1,6 @@
 // 导入button组件
 import '../public/assets/style/base.css'
-import Button from './Button'
+import { Button, ButtonGroup } from './Button'
 import Input from './Input'
 import Icon from './Icon'
 import Card from './Card'
@@ -10,6 +10,7 @@ import Card from './Card'
 // 组件列表
 const components = [
     Button,
+    ButtonGroup,
     Input,
     Icon,
     Card,
@@ -33,6 +34,7 @@ export default {
     install,
     // 以下是具体的组件列表
     Button,
+    ButtonGroup,
     Input,
     Icon,
     Card,

@@ -68,24 +68,54 @@
 ## 图标按钮
 <ClientOnly>
 <f-demo code='
-<if-button  disable>Default</if-button>'>
-<if-button icon='haha'  disable>Default</if-button>
+<if-button icon="fish" right></if-button>
+<if-button icon="qq" right iconColor="#67b5ff">QQ</if-button>
+<if-button icon="alipay" iconColor="#02a9f1" right>支付宝</if-button>
+<if-button icon="wechat" iconColor="#1aad19" >微信</if-button>'>
+<if-button icon="fish" right></if-button>
+<if-button icon="qq" right iconColor="#67b5ff">QQ</if-button>
+<if-button icon="alipay" iconColor="#02a9f1" right>支付宝</if-button>
+<if-button icon="wechat" iconColor="#1aad19" >微信</if-button>
 </f-demo>
-<if-icon/>
 </ClientOnly >
+icon：icon名称，
+iconColor：icon的颜色
 
 ## 加载按钮
 <ClientOnly>
 <f-demo code='
-<if-button  disable>Default</if-button>'>
-<if-button icon='haha'  disable>Default</if-button>
+<if-button icon="loading"></if-button>
+<if-button icon="loading">Loading……</if-button>
+<if-button icon="loading" right>Loading……</if-button>
+<if-button icon="loading" right iconColor="#2c3e50">Loading……</if-button>'>
+<if-button icon="loading"></if-button>
+<if-button icon="loading">Loading……</if-button>
+<if-button icon="loading" right>Loading……</if-button>
+<if-button icon="loading" right iconColor="#2c3e50">Loading……</if-button>
 </f-demo>
 </ClientOnly >
 
-
-
-## 输入框
-
+## 按钮组
 <ClientOnly>
-<f-input/>
+<f-demo code='
+'>2个按钮：
+<if-button-group icon="loading">
+<if-button icon="left">prev</if-button>
+<if-button icon="right" right>next</if-button>
+</if-button-group>
+<br/><br/>3个按钮：
+<if-button-group icon="loading">
+<if-button icon="qq" right iconColor="#67b5ff">QQ</if-button>
+<if-button icon="wechat" iconColor="#1aad19" >微信</if-button>
+<if-button icon="alipay" iconColor="#02a9f1" right>支付宝</if-button>
+</if-button-group>
+<br/><br/>4个不同类型按钮：
+<if-button-group icon="loading">
+<if-button type='primary' icon="left" iconColor="#ffffff">prev</if-button>
+<if-button type="dashed" ghost>middle1</if-button>
+<if-button type="error">middle2</if-button>
+<if-button type="info" icon="right" right iconColor="#ffffff">next</if-button>
+</if-button-group>
+</f-demo>
 </ClientOnly >
+

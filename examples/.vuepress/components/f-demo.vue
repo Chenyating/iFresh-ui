@@ -49,7 +49,6 @@ export default {
     box-shadow: 0px 0px 5px #f1f2f4;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
-
     .example-box {
         padding: 20px;
     }

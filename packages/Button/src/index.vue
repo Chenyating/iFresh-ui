@@ -1,17 +1,26 @@
 <template>
 <div :class="className">
-    <div>
-        <slot name="icon"></slot>
+    <div class="flex-center">
+        <Icon :size='20' v-if="icon&&!right" :type='icon' :color='iconColor'/>
         <slot></slot>
+        <Icon :size='20' v-if="icon&&right" :type='icon' :color='iconColor'/>
     </div>
 </div>
 </template>
 
 <script>
+import Icon from '../../Icon/src/index.vue'
 const preCls = `if-btn`
 export default {
     name: 'if-button',
+    components:{
+        Icon
+    },
     props: {
+        iconColor:{
+            type:String,
+            default:'#afcd50'
+        },
         type: {
             type: String,
             default: 'default'
@@ -24,6 +33,14 @@ export default {
             type: Boolean,
             default: false
         },
+        icon:{
+            type:String,
+            default:''
+        },
+        right:{
+            type:Boolean,
+            default:false
+        }
     },
     computed: {
         className() {
@@ -49,6 +66,7 @@ export default {
     padding: 0 @d-normal;
     border-radius: @border-radius;
     cursor: pointer;
+    vertical-align: middle;
 }
 
 .if-btn(@textColor, @borderColor, @bgColor) {

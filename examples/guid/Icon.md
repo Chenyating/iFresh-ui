@@ -2,5 +2,6 @@
 
 ## icon
 <ClientOnly>
-<!-- <if-icon>Default<//if-icon> -->
+<f-icon code='<if-icon type="iconName" color="color" size="number"/>'>
+</f-icon>
 </ClientOnly >
