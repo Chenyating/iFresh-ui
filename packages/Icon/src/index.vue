@@ -11,26 +11,26 @@ import icons from './svg.js'
 export default {
     name: 'if-icon',
     props: {
-        color:{
-            type:String,
-            default:'#c4deaa'
+        color: {
+            type: String,
+            default: '#c4deaa'
         },
-        size:{
-            type:String,
-            default:'50'
+        size: {
+            type: String,
+            default: '50'
         },
-        type:{
-            type:String,
-            default:'fish'
+        type: {
+            type: String,
+            default: 'fish'
         }
     },
     computed: {
-        iconSize(){
+        iconSize() {
             return Number(this.size)
         },
         classes() {
             return [{
-                [`rotate`]:this.type=='loading',
+                [`rotate`]: this.type == 'loading',
                 // [`${prefixCls}-${this.type}`]: !!this.type,
                 // [`${prefixCls}-${this.type}-${this.align}`]: !!this.align,
                 // [`${prefixCls}-${this.type}-${this.justify}`]: !!this.justify,
@@ -39,14 +39,14 @@ export default {
         },
         styles() {
             let style = {};
-            if (this.type =='loading') {
+            if (this.type == 'loading') {
                 style = {
                     animation: `rotate 1s linear infinite`,
                 };
             }
             return style;
         },
-        iconName(){
+        iconName() {
             return icons[this.type]
         }
     },
@@ -57,9 +57,7 @@ export default {
 @import './public/assets/style/index.less';
 
 .if-icon {
+    display: inline;
     margin: @d-mini;
-}
-.primary {
-    background: blue;
 }
 </style>

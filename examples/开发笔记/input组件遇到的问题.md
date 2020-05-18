@@ -41,12 +41,17 @@
 2. 在其 input 事件被触发时，将新的值通过自定义的input事件抛出
 ```html
 自定义组件里的input要这么写：
-<input :value="value" @input="inputMethod" />
+<input :value="reciveValue" @input="inputMethod" />
 ```
 
-注意：`:value='value'`，不这么写，没法双向绑定
+注意：`reciveValue=this.value`，要指向value，不这么写，没法双向绑定。
 
 ```js
+data(){
+  return{
+    reciveValue:this.value
+  }
+}
 
       inputMethod(e) {
             this.receiveValue=e.target.value;
