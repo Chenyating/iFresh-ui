@@ -17,14 +17,14 @@
 <script>
 import ifIcon from '../../Icon/src/index.vue'
 import ifButton from '../../Button/src/index.vue'
-const preCls = `if-input`
+const preCls = `if-radio`
 
 export default {
     components: {
         ifIcon,
         ifButton
     },
-    name: 'if-input',
+    name: 'if-radio',
     props: {
         value: {
             type: String,
