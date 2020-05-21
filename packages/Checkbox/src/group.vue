@@ -5,18 +5,18 @@
 </template>
 
 <script>
-const preCls = `if-radio-group`
+const preCls = `if-checkbox-group`
 const now = Date.now();
 let num = 0;
 const radomName = () => {
     return `ifRadio_${now}_${num++}`
 }
 export default {
-    name: 'if-radio-group',
+    name: 'if-checkbox-group',
     props: {
         value: {
-            type: [Boolean, String],
-            default: ''
+            type: Array,
+            default:[]
         },
         name: {
             type: String,
@@ -33,14 +33,25 @@ export default {
     data() {
         return {
             currentValue: this.value,
-            radioGroupName: this.name
+            checkboxGroupName: this.name,
+            list: this.value
         }
     },
     methods: {
         // 主要是用于 input type=button，当被点击时触发此事件2
-        changeMethod(value) {
-            this.$emit('change', value)
-            this.$emit('input', value);
+        clickMethod(value) {
+            var repeat = false;
+            for (let i = 0; i < this.list.length; i++) {
+                if (this.list[i] == value) {
+                    repeat = true;
+                    this.list.splice(i, 1)
+                }
+            }
+            if (!repeat) {
+                this.list.push(value);
+            }
+            this.$emit('click', this.list)
+            this.$emit('input', this.list);
         }
     }
 }
