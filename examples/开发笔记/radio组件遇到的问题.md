@@ -3,6 +3,15 @@
 ## 互斥问题
 相同radio的name一致的时候可以实现互斥问题。
 
+- name取名字：
+```js
+const now = Date.now();
+let num = 0;
+const radomName = () => {
+    return `ifRadio_${now}_${num++}`
+}
+```
+
 ## radio-group互斥问题
 可以用this.$parent.name来传给子组件。
 
@@ -20,3 +29,7 @@
 ```js
     this.value==null?this.label:this.value
 ```
+
+## 样式问题
+
+可以用label，用content来定义，有很多图标：utf-8。
