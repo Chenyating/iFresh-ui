@@ -1,5 +1,5 @@
 <template>
-<div class="if-icon flex-center" :class="classes" @click="$emit('click')">
+<div class="if-icon" :class="classes" @click="$emit('click')">
     <svg class="beRorate" viewBox="0 0 1024 1024" :width="size" :height="iconSize">
         <path v-for="(item,index) in iconName" :d='item' :key="index" :fill="color"></path>
     </svg>
@@ -57,7 +57,8 @@ export default {
 @import './public/assets/style/index.less';
 
 .if-icon {
-    display: inline;
-    margin: @d-mini;
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
 }
 </style>

@@ -1,31 +1,49 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'n-txt', 'l-txt', 'b-txt';
+}
+
 // 基础配置
-@import './base/color.less';//颜色
-@import './base/text.less';//字号
-@import './normal.less';//基础样式
-@import './animation.less';//动画
-
+@import './base/color.less'; //颜色
+@import './base/text.less'; //字号
+@import './normal.less'; //基础样式
+@import './animation.less'; //动画
 // 边距
-@d-mini:5px;
-@d-normal:15px;
-@d-middle:25px;
-@d-big:50px;
+@d-mini: 5px;
+@d-normal: 15px;
+@d-middle: 25px;
+@d-big: 50px;
 
-@line-height:32px;
-@border-radius:5px;
+@line-height: 32px;
+@border-radius: 5px;
 
 // 边框
-.border-all-c(@color){
+.border-all-c(@color) {
     border: solid 1px @color;
 }
-.border-all{
+
+.border-all {
     border: solid 1px @c-primary;
 }
 
-.border-all-dashed{
+.border-all-dashed {
     border: dashed 1px @c-primary;
 }
 
 // 阴影
-.border-shadow(@color){
+.border-shadow(@color) {
     box-shadow: 0px 0px 4px @color;
+}
+// 阴影
+.text-shadow(@color) {
+    text-shadow: 0px 0px 2px @color;
 }

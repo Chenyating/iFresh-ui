@@ -1,5 +1,4 @@
-// 导入button组件
-import '../public/assets/style/base.css'
+import '../public/assets/style/base/fontFamly.css' //全局导入字体
 import { Button, ButtonGroup } from './Button'
 import { Radio, RadioGroup } from './Radio'
 import { Checkbox, CheckboxGroup } from './Checkbox'
