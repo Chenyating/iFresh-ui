@@ -7,7 +7,7 @@ btn.install = function(Vue) {
     Vue.component(btn.name, btn)
 }
 btnGroup.install = function(Vue) {
-    Vue.component(btn.name, btn)
+    Vue.component(btnGroup.name, btn)
 }
 
 // 导出组件
