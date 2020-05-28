@@ -1,7 +1,9 @@
 # select组件遇到的问题
 
+思路：单选跟多选，就是radio跟checkbox的结合体；
+
 ## tabindex 
-按tab建的时候顺序触发
+按tab建的时候顺序触发,可以有blur事件跟focus事件；
 
 ## 展示
 1. 显示项目（已经选中的框）（框）

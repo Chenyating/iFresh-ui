@@ -1,71 +1,75 @@
 <template>
-<div class="if-select" :class="classes">
-    <div class="select-box" @click="clickMethod">
-        <input :value="currenValue" @blur="blurMethod" />
-        <if-icon class="turnup" type="down" size='20' />
+<div :class="className">
+    <div class="input" :value="currentValue" tabindex="0" @click="showList">
+        <span v-if="!more">{{currentValue}}</span>
+        <span v-else class="select-item" v-for="(item,index) in currentValue" :key="index">{{item}}</span>
     </div>
-    <div class="select-item" v-show="showItem">
+    <div class="list" v-if="ifshowList">
         <slot></slot>
     </div>
 </div>
 </template>
 
 <script>
-import ifIcon from '../../Icon/src/index.vue'
+const preCls = `if-select`
 export default {
     name: 'if-select',
-    components: {
-        ifIcon
-    },
     props: {
         value: {
-            type: [String, Object, Number, Array]
+            type: [Array, String],
         },
-        size: {
-            type: String,
-            default: '50'
-        },
-        type: {
-            type: String,
-            default: 'fish'
-        }
-    },
-    data() {
-        return {
-            showItem: false,
-            currenValue: this.value
+        // 是否为多选
+        more: {
+            type: Boolean,
+            default: false
         }
     },
     computed: {
-        iconSize() {},
-        classes() {
-            return [{
-                [`rotate`]: this.type == 'loading',
-            }];
-        },
-        styles() {
-            let style = {};
-            if (this.type == 'loading') {
-                style = {
-                    animation: `rotate 1s linear infinite`,
-                };
-            }
-            return style;
+        className() {
+            return [`${preCls}`, {
+                [`${preCls}-textarea`]: this.type == 'textarea',
+            }]
         },
     },
+    data() {
+        return {
+            currentValue: this.value,
+            list: this.value,
+            ifshowList: false
+        }
+    },
     methods: {
-        clickMethod() {
-            this.showItem = !this.showItem;
+        // 显示下拉列表
+        showList() {
+            this.ifshowList = !this.ifshowList;
         },
-        changeMethod(value) {
-            this.currenValue = value;
-            this.$emit('input', this.currenValue);
-            this.$emit('change', this.currenValue)
-            this.$emit('blur', this.currenValue)
-            this.showItem = false;
+        childrenDo() {
+            if (this.more) {
+                this.ifshowList = true;
+            } else {
+                this.ifshowList = false;
+            }
         },
-        blurMethod() {
-            this.showItem = false;
+        // 主要是用于 input type=button，当被点击时触发此事件2
+        clickMethod(value) {
+            if (this.more) {
+                var repeat = false;
+                for (let i = 0; i < this.list.length; i++) {
+                    if (this.list[i] == value) {
+                        repeat = true;
+                        this.list.splice(i, 1)
+                    }
+                }
+                if (!repeat) {
+                    this.list.push(value);
+                }
+                this.$emit('click', this.list)
+                this.$emit('input', this.list);
+            } else {
+                this.currentValue = value;
+                this.$emit('click', value)
+                this.$emit('input', value);
+            }
         }
     }
 }
@@ -75,41 +79,33 @@ export default {
 @import './public/assets/style/index.less';
 
 .if-select {
-    position: relative;
-    .t-content();
+    outline: 0;
 
-    .select-box {
-        input {
-            .border-all();
-            .t-content();
-            box-sizing: border-box;
-            padding: 0 @d-mini;
-            border-radius: @border-radius;
-            padding-right: 25px;
+    .input {
+        min-height: 32px;
+        width: 200px;
+        .t-content();
+        .border-all();
+        box-sizing: border-box;
+        padding: 0 @d-mini;
+        border-radius: @border-radius;
+        overflow: hidden;
+        overflow-y: visible;
 
-            &:focus {
-                .border-shadow(@c-primary);
-                outline: solid 1px @c-primary;
-            }
-        }
-
-        &:hover {
+        &:focus {
+            outline: 0;
             .border-shadow(@c-primary)
         }
     }
 
     .select-item {
-        width: 100%;
-        position: absolute;
-        .border-shadow(@c-primary)
+        display: inline-flex;
+        margin: @d-mini;
+        .border-all();
     }
 
-    .turnup {
-        position: absolute;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        animation: turnup 1s linear;
+    .list {
+        .border-shadow(@c-primary)
     }
 }
 </style>

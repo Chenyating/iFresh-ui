@@ -3,7 +3,12 @@
     {{model1}}
     <br/><br/>
     <if-select @blur="haha" v-model="model1" style="width:200px">
-        <if-option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</if-option>
+        <if-option v-for="item in cityList" :value="item.value" :key="item.value" :label="item.label">{{ item.label }}</if-option>
+    </if-select>
+    {{model2}}
+    <br/><br/>
+    <if-select @blur="haha" v-model="model2" more style="width:200px">
+        <if-option  v-for="item in cityList" :value="item.value" :key="item.value" :label="item.label">{{ item.label }}</if-option>
     </if-select>
 </div>
 </template>
@@ -15,7 +20,7 @@ export default {
             ifshow:false,
             cityList: [{
                     value: 'New York',
-                    label: 'New York'
+                    label: 'New111 York'
                 },
                 {
                     value: 'London',
@@ -38,7 +43,8 @@ export default {
                     label: 'Canberra'
                 }
             ],
-            model1: 'Canberra'
+            model1: 'Canberra',
+            model2: ['Canberra']
         }
     },
     methods: {
