@@ -2,6 +2,8 @@
 
 思路：单选跟多选，就是radio跟checkbox的结合体；
 
+条件判断，是否可以多选。
+
 ## tabindex 
 按tab建的时候顺序触发,可以有blur事件跟focus事件；
 

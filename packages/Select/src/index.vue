@@ -1,19 +1,27 @@
 <template>
-<div :class="className">
-    <div class="input" :value="currentValue" tabindex="0" @click="showList">
+<div :class="className" :value="currentValue" tabindex="0" @click="ifshowList=!ifshowList" @blur="ifshowList=false">
+    <!-- 主展示，显示选中内容 -->
+    <div class="input">
         <span v-if="!more">{{currentValue}}</span>
-        <span v-else class="select-item" v-for="(item,index) in currentValue" :key="index">{{item}}</span>
+        <span v-else class="select-item" v-for="(item,index) in valueList" :key="index">{{item.label}}</span>
+        <if-icon class="icon" :type="ifshowList?'up':'down'" size="20" />
     </div>
-    <div class="list" v-if="ifshowList">
+    <!-- 下拉列表展示 -->
+    <div class="list" v-show="ifshowList">
         <slot></slot>
     </div>
 </div>
 </template>
 
 <script>
+import ifIcon from '../../Icon/src/index.vue'
+
 const preCls = `if-select`
 export default {
     name: 'if-select',
+    components: {
+        ifIcon
+    },
     props: {
         value: {
             type: [Array, String],
@@ -26,50 +34,53 @@ export default {
     },
     computed: {
         className() {
-            return [`${preCls}`, {
-                [`${preCls}-textarea`]: this.type == 'textarea',
-            }]
+            return [`${preCls}`]
         },
     },
     data() {
         return {
+            // 选中显示值
             currentValue: this.value,
+            // 多选当前值
             list: this.value,
-            ifshowList: false
+            ifshowList: false,
+            // 多选当前值包含label
+            valueList: [{
+                label: '',
+                value: this.value
+            }]
         }
     },
     methods: {
-        // 显示下拉列表
-        showList() {
-            this.ifshowList = !this.ifshowList;
-        },
-        childrenDo() {
-            if (this.more) {
-                this.ifshowList = true;
-            } else {
-                this.ifshowList = false;
+        // 更新label的名称，子组件调用
+        renameLabel(params) {
+            for (let i = 0; i < this.valueList.length; i++) {
+                if (this.valueList[i].value == params.value) {
+                    this.valueList[i].label = params.label;
+                }
             }
         },
-        // 主要是用于 input type=button，当被点击时触发此事件2
-        clickMethod(value) {
+        // 子组件调用，点击列表时触发
+        clickMethod(params) {
             if (this.more) {
                 var repeat = false;
                 for (let i = 0; i < this.list.length; i++) {
-                    if (this.list[i] == value) {
+                    if (this.list[i] == params.value) {
                         repeat = true;
                         this.list.splice(i, 1)
+                        this.valueList.splice(i, 1)
                     }
                 }
                 if (!repeat) {
-                    this.list.push(value);
+                    this.list.push(params.value);
+                    this.valueList.push(params)
                 }
-                this.$emit('click', this.list)
                 this.$emit('input', this.list);
             } else {
-                this.currentValue = value;
-                this.$emit('click', value)
-                this.$emit('input', value);
+                this.currentValue = params.label;
+                this.$emit('input', params.value);
             }
+            this.ifshowList = this.more
         }
     }
 }
@@ -80,8 +91,15 @@ export default {
 
 .if-select {
     outline: 0;
+    border-radius: @border-radius;
+
+    &:focus {
+        outline: 0;
+        .border-shadow(@c-primary)
+    }
 
     .input {
+        position: relative;
         min-height: 32px;
         width: 200px;
         .t-content();
@@ -92,9 +110,11 @@ export default {
         overflow: hidden;
         overflow-y: visible;
 
-        &:focus {
-            outline: 0;
-            .border-shadow(@c-primary)
+        .icon {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: @d-mini;
         }
     }
 

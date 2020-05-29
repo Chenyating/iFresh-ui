@@ -1,20 +1,14 @@
 <template>
 <div :class="className">
-    <input type="checkbox" :id="id" :checked="ifchecked" :value="currentValue" :disabled='disabled' @focus='focusMethod' @blur='blurMethod' @click='clickMethod' />
+    <input type="checkbox" :id="id" :checked="ifchecked" :value="currentValue" :disabled='disabled' @click.stop='clickMethod' />
     <label :for="id">
-        <span>
-            <slot>
-                <if-icon v-if="icon" :color="iconColor" :type="icon" size="20" />
-                {{label}}
-            </slot>
-        </span>
+        <slot>
+        </slot>
     </label>
 </div>
 </template>
 
 <script>
-import ifIcon from '../../Icon/src/index.vue'
-import ifButton from '../../Button/src/index.vue'
 const preCls = `if-option`
 const now = Date.now();
 let num = 0;
@@ -22,10 +16,6 @@ const radomName = () => {
     return `ifCheckbox_${now}_${num++}`
 }
 export default {
-    components: {
-        ifIcon,
-        ifButton
-    },
     name: 'if-option',
     props: {
         value: {
@@ -35,26 +25,7 @@ export default {
         disabled: {
             type: Boolean,
             default: false
-        },
-        checked: {
-            type: Boolean,
-            default: false
-        },
-        label: {
-            type: String,
-            required: true
-        },
-        name: {
-            type: String,
-        },
-        icon: {
-            type: String,
-            default: ''
-        },
-        iconColor: {
-            type: String,
-            default: '#afcd50'
-        },
+        }
     },
     computed: {
         className() {
@@ -63,44 +34,39 @@ export default {
             }]
         },
         ifchecked() {
-            // 判断是否为checkbox组
-            if (this.$parent.currentValue instanceof Array) {
+            // 判断是否为多选
+            if (this.$parent.more) {
                 for (let i = 0; i < this.$parent.currentValue.length; i++) {
                     if (this.$parent.currentValue[i] == (this.value ? this.value : this.label)) {
+                        var params = {
+                            value: this.value,
+                            label: this.$slots.default[0].text
+                        }
+                        this.$parent.renameLabel(params) //父组件更新label名
                         return true;
                     }
                 }
             } else {
-                return this.$parent.currentValue == this.value?true:false;
+                return this.$parent.currentValue == this.value ? true : false;
             }
+            return false;
 
         }
     },
     data() {
         return {
             currentValue: this.value,
-            checklist: [],
             id: radomName()
         }
     },
     methods: {
-        // 当input 获取到焦点时触发,最先触发1
-        focusMethod(e) {
-            this.$emit('focus', e)
-        },
-        // 主要是用于 input type=button，当被点击时触发此事件2
+        // 选中更新父显示的值
         clickMethod(e) {
-            // 判断是否多选组
-            if (this.value) {
-                this.$parent.clickMethod(this.value)
-            } else {
-                this.$parent.clickMethod(this.label)
+            var params = {
+                label: this.$slots.default[0].text,
+                value: this.value
             }
-            this.$parent.childrenDo();
-        },
-        // 7、当input失去焦点时触发，注意：这个事件触发的前提是已经获取了焦点再失去焦点的时候会触发相应的js6
-        blurMethod(e) {
-            this.$emit('blur', e);
+            this.$parent.clickMethod(params)
         }
     },
 }
@@ -115,14 +81,19 @@ export default {
 
     &:hover {
         background: @c-primary;
+
+        input:checked+label:after {
+            /*before为伪元素可以在元素之后添加内容*/
+            color: @white;
+        }
     }
 
     label {
+        display: block;
+        padding-left: @d-normal;
         cursor: pointer;
+        width: 100%;
 
-        span {
-            padding-left: @d-mini;
-        }
     }
 
     label:after {
@@ -155,11 +126,15 @@ export default {
     }
 }
 
-.if-checkbox-disabled {
-    color: @c-disable;
+.if-option-disabled {
+    background: @c-disable;
+
+    &:hover {
+        background: @c-disable;
+    }
 
     label {
-        color: @c-disable;
+        color: @c-tip;
         cursor: not-allowed;
     }
 

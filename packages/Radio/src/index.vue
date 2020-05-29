@@ -14,7 +14,6 @@
 
 <script>
 import ifIcon from '../../Icon/src/index.vue'
-import ifButton from '../../Button/src/index.vue'
 const preCls = `if-radio`
 const now = Date.now();
 let num = 0;
@@ -23,8 +22,7 @@ const radomName = () => {
 }
 export default {
     components: {
-        ifIcon,
-        ifButton
+        ifIcon
     },
     name: 'if-radio',
     props: {
@@ -118,7 +116,6 @@ export default {
             this.$emit('blur', e)
         }
     },
-    mounted() {},
 }
 </script>
 
