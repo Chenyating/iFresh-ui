@@ -1,9 +1,15 @@
 <template>
-<div :class="className" :value="currentValue" tabindex="0" @click="ifshowList=!ifshowList" @blur="ifshowList=false">
+<div class="if-select" :value="currentValue" tabindex="0" @click="ifshowList=disabled?false:!ifshowList" @blur="ifshowList=false">
     <!-- 主展示，显示选中内容 -->
-    <div class="input">
-        <span v-if="!more">{{currentValue}}</span>
-        <span v-else class="select-item" v-for="(item,index) in valueList" :key="index">{{item.label}}</span>
+    <div class="input" :class="className">
+        <div v-if="!more" class="value-box">
+            <slot name="preIcon">
+            </slot>
+            <span class="currentValue">{{currentValue}}</span>
+        </div>
+        <div v-else @click="closeTag(item)" class="select-item" v-for="(item,index) in valueList" :key="index">{{item.label}}
+            <if-icon class="tag-icon" color="white" type="close" size="20" />
+        </div>
         <if-icon class="icon" :type="ifshowList?'up':'down'" size="20" />
     </div>
     <!-- 下拉列表展示 -->
@@ -14,7 +20,7 @@
 </template>
 
 <script>
-import ifIcon from '../../Icon/src/index.vue'
+import ifIcon from '../../Icon/src/index.vue';
 
 const preCls = `if-select`
 export default {
@@ -30,12 +36,18 @@ export default {
         more: {
             type: Boolean,
             default: false
+        },
+        disabled: {
+            type: Boolean,
+            default: false
         }
     },
     computed: {
         className() {
-            return [`${preCls}`]
-        },
+            return {
+                [`${preCls}-disabled`]: this.disabled,
+            }
+        }
     },
     data() {
         return {
@@ -81,6 +93,16 @@ export default {
                 this.$emit('input', params.value);
             }
             this.ifshowList = this.more
+        },
+        closeTag(params) {
+            event.stopPropagation();
+            for (let i = 0; i < this.list.length; i++) {
+                if (this.list[i] == params.value) {
+                    this.list.splice(i, 1)
+                    this.valueList.splice(i, 1)
+                }
+            }
+            this.$emit('input', this.list);
         }
     }
 }
@@ -92,6 +114,7 @@ export default {
 .if-select {
     outline: 0;
     border-radius: @border-radius;
+    position: relative;
 
     &:focus {
         outline: 0;
@@ -99,6 +122,7 @@ export default {
     }
 
     .input {
+        vertical-align: middle;
         position: relative;
         min-height: 32px;
         width: 200px;
@@ -109,6 +133,8 @@ export default {
         border-radius: @border-radius;
         overflow: hidden;
         overflow-y: visible;
+        display: inline-block;
+        flex-wrap: wrap;
 
         .icon {
             position: absolute;
@@ -119,13 +145,38 @@ export default {
     }
 
     .select-item {
-        display: inline-flex;
-        margin: @d-mini;
-        .border-all();
+        font-size: 12px;
+        line-height: 20px;
+        padding: 0 @d-normal;
+        margin-right: @d-mini;
+        background: @c-primary;
+        display: inline-block;
+        position: relative;
+        padding-right: 25px;
+        border-radius: 20px;
+        cursor: pointer;
+
+        .tag-icon {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
     }
 
     .list {
         .border-shadow(@c-primary)
     }
+}
+.value-box{
+    display: inline-flex;
+    .currentValue{
+        padding-left: @d-mini;
+    }
+}
+.if-select-disabled {
+    background: @c-disable  !important;
+    color: @c-tip  !important;
+    cursor: not-allowed;
 }
 </style>
