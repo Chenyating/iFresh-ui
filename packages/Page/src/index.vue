@@ -7,15 +7,18 @@
     <div class="page-item">
         <if-icon type='right' size="25" />
     </div>
+    <if-select v-model="everyPageis">
+        <if-option v-for="item in everyPage" :value="item" :key="item">{{ item }}条/页</if-option>
+    </if-select>
 </div>
 </template>
 
 <script>
-import ifIcon from '../../Icon/src/index.vue'
+import ifSelect from '../../Select/src/index.vue'
 export default {
     name: 'if-page',
     components: {
-        ifIcon
+        ifSelect
     },
     props: {
         color: {
@@ -29,6 +32,12 @@ export default {
         type: {
             type: String,
             default: 'fish'
+        }
+    },
+    data() {
+        return {
+            everyPageis:20,
+            everyPage:[10,20,30,40]
         }
     },
     computed: {
@@ -53,10 +62,12 @@ export default {
 
 <style lang="less" scoped>
 @import './public/assets/style/index.less';
-.if-page{
+
+.if-page {
     display: flex;
 }
-.page-item{
+
+.page-item {
     display: inline-block;
     text-align: center;
     line-height: 30px;

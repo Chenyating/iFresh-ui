@@ -19,7 +19,7 @@ export default {
     name: 'if-option',
     props: {
         value: {
-            type: [Boolean, String],
+            type: [Boolean, String, Number],
             default: null
         },
         disabled: {
@@ -31,6 +31,7 @@ export default {
         className() {
             return [`${preCls}`, {
                 [`${preCls}-disabled`]: this.disabled,
+                [`${preCls}-noseeLabel`]: !this.$parent.more,
             }]
         },
         ifchecked() {
@@ -47,7 +48,11 @@ export default {
                     }
                 }
             } else {
-                return this.$parent.currentValue == this.value ? true : false;
+                var params = {
+                    value: this.value,
+                    label: this.$slots.default[0].text
+                }
+                this.$parent.renameLabel(params) //父组件更新label名
             }
             return false;
 
@@ -147,6 +152,18 @@ export default {
     input:checked+label:after {
         /*before为伪元素可以在元素之后添加内容*/
         color: @c-disable;
+    }
+}
+
+.if-option-noseeLabel {
+    label:after {
+        content: '';
+        /*改变复选框的边框颜色也可以不要边框*/
+    }
+
+    input:checked+label:after {
+        /*before为伪元素可以在元素之后添加内容*/
+        content: '';
     }
 }
 </style>

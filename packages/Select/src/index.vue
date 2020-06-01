@@ -30,7 +30,7 @@ export default {
     },
     props: {
         value: {
-            type: [Array, String],
+            type: [Array, String, Number],
         },
         // 是否为多选
         more: {
@@ -66,9 +66,15 @@ export default {
     methods: {
         // 更新label的名称，子组件调用
         renameLabel(params) {
-            for (let i = 0; i < this.valueList.length; i++) {
-                if (this.valueList[i].value == params.value) {
-                    this.valueList[i].label = params.label;
+            if (this.more) {
+                for (let i = 0; i < this.valueList.length; i++) {
+                    if (this.valueList[i].value == params.value) {
+                        this.valueList[i].label = params.label;
+                    }
+                }
+            } else {
+                if (this.currentValue == params.value) {
+                    this.currentValue = params.label;
                 }
             }
         },
@@ -168,12 +174,15 @@ export default {
         .border-shadow(@c-primary)
     }
 }
-.value-box{
+
+.value-box {
     display: inline-flex;
-    .currentValue{
+
+    .currentValue {
         padding-left: @d-mini;
     }
 }
+
 .if-select-disabled {
     background: @c-disable  !important;
     color: @c-tip  !important;
