@@ -1,5 +1,5 @@
 <template>
-<div :class="className">
+<div :class="className" tabindex="0">
     <div v-if="type!='textarea'" class="pre-input">
         <slot name="preIcon"></slot>
         <if-icon v-if="icon" :color="iconColor" :type="icon" size="20" />
@@ -159,6 +159,7 @@ textarea {
 
     &:focus {
         outline: 0;
+        .border-shadow(@c-primary)
     }
 }
 

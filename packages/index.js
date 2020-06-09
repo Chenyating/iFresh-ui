@@ -4,6 +4,7 @@ import { Radio, RadioGroup } from './Radio'
 import { Checkbox, CheckboxGroup } from './Checkbox'
 import { Select, Option } from './Select'
 import Input from './Input'
+import ifNumber from './Number'
 import Page from './Page'
 import Icon from './Icon'
 import Card from './Card'
@@ -17,6 +18,7 @@ const components = [
     ButtonGroup,
     Page,
     Input,
+    ifNumber,
     Icon,
     Card,
     Radio,
@@ -49,6 +51,7 @@ export default {
     ButtonGroup,
     Page,
     Input,
+    ifNumber,
     Icon,
     Card,
     Radio,

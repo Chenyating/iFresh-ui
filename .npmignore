@@ -1,5 +1,6 @@
 examples/
 packages/
+node_modules/
 public/
 vue.config.js
 postcss.config.js

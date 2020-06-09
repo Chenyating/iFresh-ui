@@ -1,5 +1,5 @@
 <template>
-<div class="if-select" :value="currentValue" tabindex="0" @click="ifshowList=disabled?false:!ifshowList" @blur="ifshowList=false">
+<div class="if-select" :value="currentValue" tabindex="0" @click="ifshowList=disabled?false:!ifshowList" @blur="ifshowList=false" @change="changeMethod">
     <!-- 主展示，显示选中内容 -->
     <div class="input" :class="className">
         <div v-if="!more" class="value-box">
@@ -109,6 +109,9 @@ export default {
                 }
             }
             this.$emit('input', this.list);
+        },
+        changeMethod(){
+            this.$emit('change',this.currentValue)
         }
     }
 }
@@ -121,6 +124,7 @@ export default {
     outline: 0;
     border-radius: @border-radius;
     position: relative;
+    height: 32px;
 
     &:focus {
         outline: 0;
@@ -171,7 +175,8 @@ export default {
     }
 
     .list {
-        .border-shadow(@c-primary)
+        .border-shadow(@c-primary);
+        background: @white;
     }
 }
 
