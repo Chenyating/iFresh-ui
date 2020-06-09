@@ -79,7 +79,7 @@ export default {
                 return pageNumber
             } else {
                 if (this.currentPage <= 2 || this.currentPage >= pageNumber - 2) {
-                    return [1, 2, 3, '…', pageNumber - 2, pageNumber - 1, pageNumber]
+                    return [1, 2, 3, '…', pageNumber - 3, pageNumber - 2, pageNumber - 1, pageNumber]
                 } else {
                     return ['…', this.currentPage - 1, this.currentPage, this.currentPage + 1, '…']
                 }
@@ -98,7 +98,7 @@ export default {
                 return
             }
             this.currentPage = num;
-            this.$emit('change', currentPage);
+            this.$emit('change', this.currentPage);
         },
         pre() {
             if (this.currentPage == 1) {

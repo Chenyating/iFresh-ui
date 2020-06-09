@@ -77,7 +77,6 @@ export default {
         },
         // 6、离开input时，且表单的value发生变化触发，没有发生变化就不触发；
         changeMethod(e) {
-            this.$forceUpdate();
             this.$emit('change', e)
         },
         // 7、当input失去焦点时触发，注意：这个事件触发的前提是已经获取了焦点再失去焦点的时候会触发相应的js6
