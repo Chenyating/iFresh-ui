@@ -60,5 +60,6 @@ export default {
     display: inline-flex;
     align-items: center;
     vertical-align: middle;
+    margin: 0 @d-mini;
 }
 </style>

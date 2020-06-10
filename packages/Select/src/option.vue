@@ -83,7 +83,6 @@ export default {
 .if-option {
     display: block;
     line-height: @line-height;
-
     &:hover {
         background: @c-primary;
 

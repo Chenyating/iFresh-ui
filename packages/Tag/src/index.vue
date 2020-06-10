@@ -1,5 +1,5 @@
 <template>
-<div :class="classes" :style="styles" tabindex="0" v-if="showTag">
+<div :class="classes" @click="$emit('click')" :style="styles" tabindex="0" v-if="showTag">
     <div v-if="dot" class="dot" :style="dotStyles"></div>
     <slot class="text"></slot>
     <if-icon v-if="closable" type='false' size='20' :color="iconColor" @click="clickMethod" />
@@ -56,14 +56,14 @@ export default {
             }
         }
     },
-    data(){
+    data() {
         return {
-            showTag:true
+            showTag: true
         }
     },
     methods: {
         clickMethod(e) {
-            this.showTag=false;
+            this.showTag = false;
             this.$emit('on-close', e);
         }
     }
@@ -81,7 +81,8 @@ export default {
     .border-all();
     font-size: 14px;
     outline: 0;
-    &:focus{
+
+    &:focus {
         .border-shadow(@c-primary);
     }
 }

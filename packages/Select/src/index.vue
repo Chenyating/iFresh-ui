@@ -175,8 +175,11 @@ export default {
     }
 
     .list {
+        position: absolute;
         .border-shadow(@c-primary);
         background: @white;
+        width: 100%;
+        z-index: 99;
     }
 }
 
