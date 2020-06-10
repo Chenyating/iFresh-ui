@@ -11,6 +11,7 @@ import Page from './Page'
 import Icon from './Icon'
 import Card from './Card'
 import Tag from './Tag'
+import Divider from './Divider'
 
 
 
@@ -33,7 +34,8 @@ const components = [
     MenuItem,
     TimeAxis,
     TIMEAxisItem,
-    Tag
+    Tag,
+    Divider
 ]
 
 // 定义 install 方法，接收 Vue 作为参数。如果使用 use 注册插件，那么所有的组件都会被注册
@@ -70,5 +72,6 @@ export default {
     MenuItem,
     TimeAxis,
     TIMEAxisItem,
-    Tag
+    Tag,
+    Divider
 }

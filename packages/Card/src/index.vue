@@ -1,10 +1,11 @@
 <template>
-<div class="if-card" :class="type">
+<div :class="classes">
     <slot></slot>
 </div>
 </template>
 
 <script>
+const prefixCls='if-card'
 export default {
     name: 'if-card',
     props: {
@@ -12,7 +13,7 @@ export default {
     },
     computed: {
         classes() {
-            return [{
+            return [`${prefixCls}`,{
                 [`${prefixCls}`]: !this.type,
                 [`${prefixCls}-${this.type}`]: !!this.type,
                 [`${prefixCls}-${this.type}-${this.align}`]: !!this.align,
@@ -39,11 +40,12 @@ export default {
 
 .if-card {
     .border-all();
-    padding: @d-big;
+    padding: @d-normal;
     border-radius: 10px;
 
     &:hover {
         .border-shadow(@c-primary);
+        transition: all .2s ease-in-out;
     }
 }
 
