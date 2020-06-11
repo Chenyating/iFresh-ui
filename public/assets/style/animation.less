@@ -1,20 +1,88 @@
 @keyframes rotate {
-    0%{-webkit-transform:rotate(0deg);}
-    50%{-webkit-transform:rotate(180deg);}
-    100%{-webkit-transform:rotate(360deg);}
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    50% {
+        -webkit-transform: rotate(180deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
 }
 
 // 旋转
-.rotate{
-    animation: rotate 1s linear  infinite;
+.rotate {
+    animation: rotate 1s linear infinite;
 }
 
-@keyframes turnup {
-    0%{-webkit-transform:rotate(0deg);}
-    100%{-webkit-transform:rotate(180deg);}
+// 下降
+@keyframes trundown {
+    0% {
+        transform: translateY(-500%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
 }
 
 // 旋转
-.turnup{
-    animation: rotate 1s linear;
+.turndown {
+    animation: trundown 5s;
+    transition: all .1s ease-in;
+    z-index: 1;
+}
+
+// 上升
+@keyframes trunup {
+    0% {
+        transform: translateX(0);
+    }
+    
+    100% {
+        transform: translateY(-600%);
+    }
+}
+
+// 上升
+.turnup {
+    animation: trunup 5s;
+    transition: all .1s ease-in;
+    z-index: 1;
+}
+
+// 变高
+@keyframes beheight {
+    0% {
+        height:0;
+    }
+    
+    100% {
+        height:100%;
+    }
+}
+
+// 变高
+.beheight {
+    animation: beheight 3s;
+    z-index: 1;
+}
+
+// 变矮
+@keyframes beshort {
+    0% {
+        height:100%;
+    }
+    
+    100% {
+        height:0;
+    }
+}
+
+// 变矮
+.beshort {
+    animation: beshort 3s;
+    z-index: 1;
 }

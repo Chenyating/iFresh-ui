@@ -1,5 +1,5 @@
 <template>
-<div class="if-timeAxis-item">
+<div :class="className">
     <div class="item">
         <div class="item-title">{{title}}</div>
         <slot></slot>
@@ -28,8 +28,8 @@ export default {
     computed: {
         className() {
             return [`${preCls}`, {
-                [`${preCls}-disabled`]: this.disabled,
-                [`${preCls}-noseeLabel`]: !this.$parent.more,
+                [`turndown`]: this.$parent.ifshow,
+                [`turnup`]: !this.$parent.ifshow,
             }]
         },
     },
@@ -54,6 +54,7 @@ export default {
         .border-shadow(@c-light-primary);
         .border-all();
         .t-content();
+        background: @white;
     }
 
     .item-title {
