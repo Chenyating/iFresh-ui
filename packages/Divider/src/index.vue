@@ -48,47 +48,14 @@ export default {
 .if-divider {
     position: relative;
     height: @line-height;
+    display: flex;
+    align-items: center;
 }
 
 .if-divider-auto {
     text-align: center;
-
-    span {
-        right: 0;
-        padding: @d-mini;
-        background: @white;
-        margin: 0 @d-normal;
-        .t-content();
-
-        &::before {
-            content: "";
-            display: block;
-            width: 50%;
-            height: 1px;
-            background: @c-primary;
-            position: absolute;
-            top: 16px;
-            left: 0;
-            z-index: 1;
-        }
-
-        &::after {
-            content: "";
-            display: block;
-            width: 50%;
-            height: 1px;
-            background: @c-primary;
-            position: absolute;
-            top: 16px;
-            right: 0;
-            z-index: 1;
-        }
-    }
-}
-
-.if-divider-right {
     position: relative;
-
+    justify-content: center;
     &::before {
         content: "";
         display: block;
@@ -96,7 +63,29 @@ export default {
         height: 1px;
         background: @c-primary;
         position: absolute;
-        top: 20px;
+        left: 0;
+    }
+
+    span {
+        position: relative;
+        left: 0;
+        right: 0;
+        padding: @d-mini;
+        background: @white;
+        margin: 0 @d-normal;
+        .t-content();
+    }
+}
+
+.if-divider-right {
+    position: relative;
+    &::before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 1px;
+        background: @c-primary;
+        position: absolute;
         left: 0;
     }
 
@@ -120,7 +109,6 @@ export default {
         height: 1px;
         background: @c-primary;
         position: absolute;
-        top: 20px;
         left: 0;
     }
 

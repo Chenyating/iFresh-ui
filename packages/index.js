@@ -9,7 +9,9 @@ import Input from './Input'
 import ifNumber from './Number'
 import Page from './Page'
 import Icon from './Icon'
+import Image from './Image'
 import Card from './Card'
+import PersonCard from './personCard'
 import Tag from './Tag'
 import Divider from './Divider'
 
@@ -23,7 +25,9 @@ const components = [
     Input,
     ifNumber,
     Icon,
+    Image,
     Card,
+    PersonCard,
     Radio,
     RadioGroup,
     Checkbox,
@@ -61,7 +65,9 @@ export default {
     Input,
     ifNumber,
     Icon,
+    Image,
     Card,
+    PersonCard,
     Radio,
     RadioGroup,
     Checkbox,
