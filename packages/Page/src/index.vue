@@ -122,12 +122,15 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 @import './public/assets/style/index.less';
 
 .if-page {
     .t-content();
     display: inline-flex;
+    .if-select .input{
+            width: 100px !important;
+        }
 }
 
 .total {
