@@ -119,3 +119,12 @@ iconColor：icon的颜色
 </f-demo>
 </ClientOnly >
 
+## 按钮组
+<ClientOnly>
+<f-demo code='
+'>
+<if-backTop/>
+<if-backTop bottom='100'>回到顶部</if-backTop>
+</f-demo>
+</ClientOnly >
+
