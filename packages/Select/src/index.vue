@@ -124,7 +124,7 @@ export default {
     outline: 0;
     border-radius: @border-radius;
     position: relative;
-    height: 32px;
+    min-height: 32px;
 
     &:focus {
         outline: 0;

@@ -128,9 +128,13 @@ export default {
 .if-page {
     .t-content();
     display: inline-flex;
-    .if-select .input{
-            width: 100px !important;
-        }
+    .if-select{
+    height: 32px !important;
+        .input{
+                width: 100px !important;
+                height: 32px !important;
+            }
+    }
 }
 
 .total {
