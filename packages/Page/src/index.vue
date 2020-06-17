@@ -81,7 +81,7 @@ export default {
                 if (this.currentPage <= 2 || this.currentPage >= pageNumber - 2) {
                     return [1, 2, 3, '…', pageNumber - 3, pageNumber - 2, pageNumber - 1, pageNumber]
                 } else {
-                    return ['…', this.currentPage - 1, this.currentPage, this.currentPage + 1, '…']
+                    return ['…', this.currentPage - 1, this.currentPage, Number(this.currentPage) + 1, '…']
                 }
             }
         },
@@ -96,9 +96,10 @@ export default {
         changepage(num) {
             if (num == '…') {
                 return
+            }else{
+                this.currentPage = num;
+                this.$emit('change', this.currentPage);
             }
-            this.currentPage = num;
-            this.$emit('change', this.currentPage);
         },
         pre() {
             if (this.currentPage == 1) {
@@ -122,12 +123,20 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 @import './public/assets/style/index.less';
 
 .if-page {
     .t-content();
+    background: @white;
     display: inline-flex;
+    .if-select{
+    height: 32px !important;
+        .input{
+                width: 100px !important;
+                height: 32px !important;
+            }
+    }
 }
 
 .total {

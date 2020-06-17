@@ -86,3 +86,35 @@
     animation: beshort 3s;
     z-index: 1;
 }
+
+// 渐入
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    
+    100% {
+        opacity: 1;
+    }
+}
+
+
+.fadeIn{
+    animation: fadeIn .3s ease-in;
+    transition: all .3s ease-in;
+}
+
+// 减淡
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    
+    100% {
+        opacity: 0;
+    }
+}
+.fadeOut{
+    animation: fadeOut .3s ease-in;
+    transition: all .3s ease-in;
+}

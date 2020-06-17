@@ -156,10 +156,8 @@ textarea {
     box-sizing: border-box;
     padding: 0 @d-mini;
     border-radius: @border-radius;
-
-    &:focus {
+    &:focus{
         outline: 0;
-        .border-shadow(@c-primary)
     }
 }
 
@@ -170,15 +168,16 @@ textarea {
     display: inline-flex;
     border-radius: @border-radius;
     vertical-align: middle;
-
+    outline: 0;
+    background: @white;
     &:hover {
         border-radius: 5px;
         display: inline-flex;
         .border-shadow(@c-primary)
     }
-
     &:focus {
-        background: red;
+        outline: 0;
+        .border-shadow(@c-primary)
     }
 
     ::-webkit-input-placeholder {
