@@ -1,13 +1,17 @@
 <template>
 <div :class="classes">
-    <ifImage src='../../../public/assets/img/aa.jpg'/>
-    <ifImage src='https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg'/>
-    <div>{{name}}</div>
-    <slot></slot>
+    <ifImage class="img" fit='cover' src='https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg' />
+    <ifDivider v-if="name" class="person-name">{{name}}</ifDivider>
+
+    <div class="person-content">
+        <slot></slot>
+    </div>
+    <slot name="bottom"></slot>
 </div>
 </template>
 
 <script>
+import ifDivider from '../../Divider'
 import ifImage from '../../Image'
 const prefixCls = 'if-personCard'
 export default {
@@ -18,7 +22,8 @@ export default {
         }
     },
     components: {
-        ifImage
+        ifImage,
+        ifDivider
     },
     computed: {
         classes() {
@@ -45,21 +50,38 @@ export default {
 
 .if-personCard {
     display: inline-block;
-    padding: @d-normal;
+    width: 300px;
     border-radius: 10px;
     .border-all();
     .t-content();
+    font-weight: lighter;
+    padding: @d-mini;
 
     &:hover {
         .border-shadow(@c-primary);
         .border-all-c(@white);
         transition: all .2s ease-in-out;
-        background: @c-primary;
-        color: @white;
     }
-}
 
-.primary {
-    background: blue;
+    .img {
+        width: 300px;
+        height: 300px;
+    }
+
+    .person-name {
+        text-align: center;
+        padding: @d-mini;
+    }
+
+    .person-content {
+        padding: @d-normal;
+    }
+
+    .person-opt {
+        padding: @d-normal;
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+    }
 }
 </style>

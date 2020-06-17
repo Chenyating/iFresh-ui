@@ -3,7 +3,7 @@ import { Button, ButtonGroup } from './Button'
 import { Radio, RadioGroup } from './Radio'
 import { Checkbox, CheckboxGroup } from './Checkbox'
 import { Select, Option } from './Select'
-import { Menu, MenuItem } from './Menu'
+import { Menu, MenuItem, SubMenu } from './Menu'
 import { TimeAxis, TIMEAxisItem } from './TimeAxis'
 import Input from './Input'
 import ifNumber from './Number'
@@ -36,6 +36,7 @@ const components = [
     Option,
     Menu,
     MenuItem,
+    SubMenu,
     TimeAxis,
     TIMEAxisItem,
     Tag,
@@ -76,6 +77,7 @@ export default {
     Option,
     Menu,
     MenuItem,
+    SubMenu,
     TimeAxis,
     TIMEAxisItem,
     Tag,

@@ -47,7 +47,6 @@ export default {
 
 .if-divider {
     position: relative;
-    height: @line-height;
     display: flex;
     align-items: center;
 }
@@ -73,7 +72,7 @@ export default {
         padding: @d-mini;
         background: @white;
         margin: 0 @d-normal;
-        .t-content();
+        .t-main();
     }
 }
 

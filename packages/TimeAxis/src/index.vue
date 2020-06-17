@@ -79,6 +79,8 @@ export default {
         margin: 0 auto;
         z-index: 2;
         width: 100px;
+        cursor: pointer;
+
     }
 
     .timeAxis-title {
@@ -90,6 +92,7 @@ export default {
     .timeAxis-title-right {
         .title();
         right: @d-normal;
+
     }
 
     .timeAxis-title-left {
