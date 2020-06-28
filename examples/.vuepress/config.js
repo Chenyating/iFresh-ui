@@ -7,5 +7,6 @@ module.exports = {
             { text: 'Github', type: 'url', link: 'https://github.com/Chenyating' },
         ]
     },
-    theme: 'ting'
+    theme: 'ting',
+    port: '3214'
 }

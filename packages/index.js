@@ -5,6 +5,7 @@ import { Checkbox, CheckboxGroup } from './Checkbox'
 import { Select, Option } from './Select'
 import { Menu, MenuItem, SubMenu } from './Menu'
 import { TimeAxis, TIMEAxisItem } from './TimeAxis'
+import { Form, FormItem } from './Form'
 import Input from './Input'
 import ifNumber from './Number'
 import Page from './Page'
@@ -42,7 +43,9 @@ const components = [
     TIMEAxisItem,
     Tag,
     Divider,
-    BackTop
+    BackTop,
+    Form,
+    FormItem
 ]
 
 // 定义 install 方法，接收 Vue 作为参数。如果使用 use 注册插件，那么所有的组件都会被注册
@@ -84,5 +87,7 @@ export default {
     TIMEAxisItem,
     Tag,
     Divider,
-    BackTop
+    BackTop,
+    Form,
+    FormItem
 }
