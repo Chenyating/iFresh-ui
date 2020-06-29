@@ -99,6 +99,8 @@ export default {
                 this.$emit('input', params.value);
             }
             this.ifshowList = this.more
+            this.$parent.$emit('validate')
+
         },
         closeTag(params) {
             event.stopPropagation();
@@ -110,8 +112,10 @@ export default {
             }
             this.$emit('input', this.list);
         },
-        changeMethod(){
-            this.$emit('change',this.currentValue)
+        changeMethod() {
+            this.$emit('change', this.currentValue)
+            this.$parent.$emit('validate')
+
         }
     }
 }

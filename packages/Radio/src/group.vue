@@ -45,6 +45,8 @@ export default {
         changeMethod(value) {
             this.$emit('change', value)
             this.$emit('input', value);
+            this.$parent.$emit('validate')
+
         }
     }
 }

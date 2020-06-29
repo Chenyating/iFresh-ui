@@ -124,6 +124,7 @@ export default {
                 this.currentValue = e.target.value;
                 this.$emit('input', this.currentValue);
             }
+            this.$parent.$emit('validate')
         },
         // 5、完成输入，在此事件触发之前一定触发了onkeydown事件5
         keyupMethod(e) {

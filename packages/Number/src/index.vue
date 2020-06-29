@@ -10,7 +10,10 @@ export default {
     name: 'if-number',
     props: {
         value: {
-            type: String || Number,
+            type: [
+                String,
+                Number
+            ],
             default: ''
         },
         placeholder: {
@@ -48,7 +51,7 @@ export default {
     },
     methods: {
         clear() {
-            this.$emit('input', this.currentValue)
+            this.$emit('input', Number(this.currentValue))
         },
         // 当input 获取到焦点时触发,最先触发1
         focusMethod(e) {
@@ -66,9 +69,9 @@ export default {
         inputMethod(e) {
             this.currentValue = e.target.value;
             if (this.readonly) {
-                this.$emit('input', this.currentValue);
+                this.$emit('input', Number(this.currentValue))
             } else {
-                this.$emit('input', this.currentValue);
+                this.$emit('input', Number(this.currentValue))
             }
         },
         // 5、完成输入，在此事件触发之前一定触发了onkeydown事件5
