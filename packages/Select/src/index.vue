@@ -49,6 +49,11 @@ export default {
             }
         }
     },
+    watch: {
+        value(newValue, oldVale) {
+            this.currentValue = newValue;
+        }
+    },
     data() {
         return {
             // 选中显示值

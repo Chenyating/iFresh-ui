@@ -60,13 +60,23 @@ export default {
 @import './public/assets/style/index.less';
 
 .if-submenu {
-    position: relative;
-    padding: @d-normal;
     cursor: pointer;
-    text-align: right !important;
-    border-bottom: 2px solid @c-primary;
-    border-right: 2px solid @c-primary;
-    outline: 0;
+    font-size: 1em;
+    //文字垂直
+    text-align: center;
+    padding: 0.5em;
+    border-top: 0;
+    vertical-align: bottom;
+    margin-bottom: 0;
+    letter-spacing: 5px;
+    font-weight: bold;
+    overflow: hidden;
+    writing-mode: vertical-lr;
+    /*从左向右 从右向左是 writing-mode: vertical-rl;*/
+    writing-mode: tb-lr;
+    text-decoration: none;
+    font-weight: bold;
+    out-line: none;
 }
 
 .menu-item-box {

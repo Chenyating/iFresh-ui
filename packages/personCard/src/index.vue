@@ -1,8 +1,7 @@
 <template>
 <div :class="classes">
     <ifImage class="img" fit='cover' src='https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg' />
-    <ifDivider v-if="name" class="person-name">{{name}}</ifDivider>
-
+    <ifDivider v-if="name" class="person-name" dashed>{{name}}</ifDivider>
     <div class="person-content">
         <slot></slot>
     </div>
@@ -75,6 +74,7 @@ export default {
 
     .person-content {
         padding: @d-normal;
+        padding-top: 0;
     }
 
     .person-opt {

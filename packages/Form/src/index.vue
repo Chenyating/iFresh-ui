@@ -32,6 +32,11 @@ export default {
             const tasks = this.$children.filter(item => item.prop).map(item => item.validate());
             Promise.all(tasks).then(() => cb(true)).catch(() => cb(false))
         },
+        reset(cb) {
+            // 全局校验
+            // 获取校验项
+            const tasks = this.$children.filter(item => item.prop).map(item => item.reset());
+        },
     }
 }
 </script>

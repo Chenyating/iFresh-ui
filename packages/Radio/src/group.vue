@@ -40,6 +40,11 @@ export default {
             radioGroupName: this.name
         }
     },
+    watch: {
+        value(newValue, oldVale) {
+            this.currentValue = newValue;
+        }
+    },
     methods: {
         // 主要是用于 input type=button，当被点击时触发此事件2
         changeMethod(value) {

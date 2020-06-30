@@ -16,7 +16,7 @@ export default {
     props: {
         value: {
             type: Array,
-            default:[]
+            default: []
         },
         name: {
             type: String,
@@ -29,6 +29,14 @@ export default {
                 [`${preCls}-textarea`]: this.type == 'textarea',
             }]
         },
+    },
+    watch: {
+        value: {
+            handler(newVal, oldVal) {
+                this.currentValue = newVal;
+            },
+            deep: true
+        }
     },
     data() {
         return {

@@ -39,42 +39,16 @@ export default {
 }
 </script>
 
-
-
 <style lang="less" scoped>
 @import './public/assets/style/index.less';
 
 .if-menu {
     position: relative;
-    .flex-c-center();
-    background: @c-primary;
-    text-align: right;
-
-    .if-menu-item {
-        .flex-c-center();
-
-    }
-
-    .if-menu-item-get {
-        border-bottom: 2px solid @white;
-    }
-}
-
-.if-menu-vertical {
-    display: inline-flex;
-    flex-direction: column;
-    background: @c-primary;
-    text-align: right;
-    box-sizing: content-box;
-
-    .if-menu-item {
-        text-align: right;
-        display: inline-block;
-    }
-
-    .if-menu-item-get {
-        border-right: 2px solid @white;
-        border-bottom: 0px;
-    }
+    max-width: 900px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-weight: bold;
 }
 </style>

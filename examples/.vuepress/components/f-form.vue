@@ -124,16 +124,8 @@ export default {
             })
         },
         handleReset(name) {
-            this.$nextTick(()=>{
-                this.formValidate = {
-                    name: '',
-                    mail: '',
-                    city: '',
-                    gender: '',
-                    interest: [],
-                    time: '',
-                    desc: ''
-                }
+            this.$refs[name].reset((valid) => {
+    
             })
         }
     }

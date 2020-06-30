@@ -31,17 +31,11 @@ export default {
     data() {
         return {
             isError: false,
-            name: radomName()
+            name: radomName(),
+            imgSrc:this.src
         }
     },
     computed: {
-        imgSrc() {
-            if (this.src.substr(0, 4) == "http") {
-                return this.src
-            } else {
-                return require(this.src)
-            }
-        },
         classes() {
             return [`${prefixCls}`, {}];
         },
@@ -80,9 +74,9 @@ export default {
         display: inline-block;
         width: inherit;
         height: inherit;
-        background: @c-disable;
+        background: #f1f2f4;
         .flex-center();
-        .t-tip();
+        .t-tip() !important;
     }
 }
 </style>

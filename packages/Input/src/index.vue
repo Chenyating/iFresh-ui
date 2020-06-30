@@ -75,6 +75,11 @@ export default {
             default: ''
         },
     },
+    watch: {
+        value(newValue,oldVale) {
+            this.currentValue=newValue;
+        }
+    },
     computed: {
         className() {
             return [`${preCls}`, {
@@ -157,7 +162,8 @@ textarea {
     box-sizing: border-box;
     padding: 0 @d-mini;
     border-radius: @border-radius;
-    &:focus{
+
+    &:focus {
         outline: 0;
     }
 }
@@ -171,11 +177,13 @@ textarea {
     vertical-align: middle;
     outline: 0;
     background: @white;
+
     &:hover {
         border-radius: 5px;
         display: inline-flex;
         .border-shadow(@c-primary)
     }
+
     &:focus {
         outline: 0;
         .border-shadow(@c-primary)

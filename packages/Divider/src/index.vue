@@ -19,6 +19,14 @@ export default {
             type: Boolean,
             default: false
         },
+        dashed: {
+            type: Boolean,
+            default: false
+        },
+        vertical: {
+            type: Boolean,
+            default: false
+        },
     },
     computed: {
         classes() {
@@ -26,17 +34,10 @@ export default {
                 [`${prefixCls}-auto`]: !this.right && !this.left,
                 [`${prefixCls}-right`]: this.right && !this.left,
                 [`${prefixCls}-left`]: !this.right && this.left,
+                [`${prefixCls}-dashed`]: this.dashed,
+                [`${prefixCls}-vertical`]: this.vertical,
+                [`${prefixCls}-vertical-dashed`]: this.vertical&&this.dashed,
             }];
-        },
-        styles() {
-            let style = {};
-            if (this.gutter !== 0) {
-                style = {
-                    marginLeft: this.gutter / -2 + 'px',
-                    marginRight: this.gutter / -2 + 'px'
-                };
-            }
-            return style;
         }
     },
 }
@@ -49,75 +50,73 @@ export default {
     position: relative;
     display: flex;
     align-items: center;
-}
+    margin: @d-normal @d-mini;
 
-.if-divider-auto {
-    text-align: center;
-    position: relative;
-    justify-content: center;
     &::before {
+        font-size: 0;
         content: "";
         display: block;
         width: 100%;
-        height: 1px;
-        background: @c-primary;
+        border-top: solid 1px @c-primary;
         position: absolute;
-        left: 0;
     }
 
     span {
+        display: inline-block;
+        padding: 0 @d-mini;
+        .t-content();
+        background: @white;
         position: relative;
+    }
+}
+
+.if-divider-auto {
+    justify-content: center;
+
+    span {
         left: 0;
         right: 0;
-        padding: @d-mini;
-        background: @white;
-        margin: 0 @d-normal;
-        .t-main();
     }
 }
 
 .if-divider-right {
-    position: relative;
-    &::before {
-        content: "";
-        display: block;
-        width: 100%;
-        height: 1px;
-        background: @c-primary;
-        position: absolute;
-        left: 0;
-    }
+    height: @line-height;
 
     span {
+        right: @d-normal;
         position: absolute;
-        right: 0;
-        padding: @d-mini;
-        background: @white;
-        margin: 0 @d-normal;
-        .t-content();
     }
 }
 
 .if-divider-left {
-    position: relative;
-
-    &::before {
-        content: "";
-        display: block;
-        width: 100%;
-        height: 1px;
-        background: @c-primary;
-        position: absolute;
-        left: 0;
-    }
-
     span {
-        position: absolute;
-        left: 0;
-        padding: @d-mini;
-        background: @white;
-        margin: 0 @d-normal;
-        .t-content();
+        left: @d-normal;
+    }
+}
+
+// 样式
+.if-divider-dashed {
+    &::before {
+        border-top: dashed 2px @c-primary;
+        height: 0;
+    }
+}
+
+.if-divider-vertical {
+    height: 100%;
+    // min-height: @line-height;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 @d-mini;
+    &::before {
+        height: 100%;
+        width: 0;
+        border-left: solid 1px @c-primary;
+    }
+}
+.if-divider-vertical-dashed {
+    &::before {
+        border-left: dashed 1px @c-primary;
     }
 }
 </style>

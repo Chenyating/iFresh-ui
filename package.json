@@ -1,6 +1,6 @@
 {
     "name": "ifresh-ui",
-    "version": "0.1.9",
+    "version": "0.2.0",
     "private": false,
     "scripts": {
         "lib": "vue-cli-service build --target lib --name ifresh-ui --dest lib packages/index.js",
