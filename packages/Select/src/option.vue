@@ -71,7 +71,7 @@ export default {
                 label: this.$slots.default[0].text,
                 value: this.value
             }
-            this.$parent.clickMethod(params)
+            this.$parent.SelectclickMethod(params)
         }
     },
 }

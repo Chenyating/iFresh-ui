@@ -40,3 +40,12 @@
 <if-page simple show-total show-sizer/>
 </f-demo>
 </ClientOnly >
+
+## 超级简单混合写法
+<ClientOnly>
+<f-demo code='
+   <if-input v-model="ms"></if-input>'>
+<if-page verySimple/><br/>
+<if-page verySimple show-total show-sizer/>
+</f-demo>
+</ClientOnly >

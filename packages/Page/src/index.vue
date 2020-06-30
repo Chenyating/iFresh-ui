@@ -4,16 +4,21 @@
     <div class="page-item" @click="pre()">
         <if-icon type='left' size="25" />
     </div>
-    <!-- 简单 -->
-    <div v-if="simple" class="simple">
-        <if-number v-model="currentPage"></if-number>
-        <span>/</span>
-        <span>{{Math.ceil(total/everyPageis)}}</span>
+    <div v-if="!verySimple">
+        <!-- 简单 -->
+        <div v-if="simple" class="simple">
+            <if-number v-model="currentPage"></if-number>
+            <span>/</span>
+            <span>{{Math.ceil(total/everyPageis)}}</span>
+        </div>
+        <!-- 默认 -->
+        <div v-else>
+            <div @click="changepage(i)" :class="i==currentPage?'now-page':'page-item'" v-for="(i,index) in pageNumber" :key="index">{{i}}</div>
+        </div>
     </div>
-    <!-- 默认 -->
-    <div v-else>
-        <div @click="changepage(i)" :class="i==currentPage?'now-page':'page-item'" v-for="(i,index) in pageNumber" :key="index">{{i}}</div>
-    </div>
+    <span v-else>
+        第{{currentPage}}页
+    </span>
     <div class="page-item" @click="next()">
         <if-icon type='right' size="25" />
     </div>
@@ -62,6 +67,10 @@ export default {
             type: Boolean,
             default: false
         },
+        verySimple: {
+            type: Boolean,
+            default: false
+        },
 
     },
     data() {
@@ -96,7 +105,7 @@ export default {
         changepage(num) {
             if (num == '…') {
                 return
-            }else{
+            } else {
                 this.currentPage = num;
                 this.$emit('change', this.currentPage);
             }
@@ -128,14 +137,18 @@ export default {
 
 .if-page {
     .t-content();
-    background: @white;
     display: inline-flex;
-    .if-select{
-    height: 32px !important;
-        .input{
-                width: 100px !important;
-                height: 32px !important;
-            }
+
+    .if-select {
+        height: 32px !important;
+
+        .input {
+            width: 100px !important;
+            height: 32px !important;
+        }
+    }
+    span{
+        margin: 0 @d-mini;
     }
 }
 
@@ -153,6 +166,7 @@ export default {
     margin: @d-mini;
     margin-top: 0;
     cursor: pointer;
+    background: @white;
 }
 
 .now-page {

@@ -84,7 +84,7 @@ export default {
             }
         },
         // 子组件调用，点击列表时触发
-        clickMethod(params) {
+        SelectclickMethod(params) {
             if (this.more) {
                 var repeat = false;
                 for (let i = 0; i < this.list.length; i++) {

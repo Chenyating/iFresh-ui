@@ -33,7 +33,13 @@ export default {
     watch: {
         value: {
             handler(newVal, oldVal) {
-                this.currentValue = newVal;
+                if(newVal==null||newVal==''){
+                    this.currentValue = [];
+                    this.list=[];
+                }else{
+                    this.currentValue = newVal;
+                    this.list=newVal;
+                }
             },
             deep: true
         }
@@ -47,7 +53,7 @@ export default {
     },
     methods: {
         // 主要是用于 input type=button，当被点击时触发此事件2
-        clickMethod(value) {
+        CheckboxclickMethod(value) {
             var repeat = false;
             for (let i = 0; i < this.list.length; i++) {
                 if (this.list[i] == value) {

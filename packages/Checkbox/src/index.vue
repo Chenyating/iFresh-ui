@@ -105,9 +105,9 @@ export default {
             // 判断是否checkbox组
             if (this.$parent.checkboxGroupName) {
                 if (this.value) {
-                    this.$parent.clickMethod(this.value)
+                    this.$parent.CheckboxclickMethod(this.value)
                 } else {
-                    this.$parent.clickMethod(this.label)
+                    this.$parent.CheckboxclickMethod(this.label)
                 }
             } else {
                 if (typeof (this.currentValue) === 'boolean') {

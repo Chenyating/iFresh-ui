@@ -1,14 +1,17 @@
 <template>
 <!-- 时间轴 -->
 <div class="if-timeAxis-box">
-    <if-tag fill v-if="title" @click="showTimeAxis" :class='titleClasses'>
-        <if-icon class="icon" color='white' :type="ifshow?'up':'down'" size="20" />
-        {{title}}
-    </if-tag>
+    <div :class="titleClasses" @click="showTimeAxis">
+        <slot name="title">
+            <if-tag fill v-if="title">
+                <if-icon class="icon" color='white' :type="ifshow?'up':'down'" size="20" />
+                {{title}}
+            </if-tag>
+        </slot>
+    </div>
     <div :class="classes">
         <slot v-if="ifshow"></slot>
     </div>
-
 </div>
 </template>
 
@@ -34,10 +37,19 @@ export default {
             type: Boolean,
             default: false
         },
+        show: {
+            type: Boolean,
+            default: false
+        }
     },
     data() {
         return {
-            ifshow: true
+            ifshow: this.show
+        }
+    },
+    watch: {
+        show(newValue, oldValue) {
+            this.ifshow = newValue;
         }
     },
     computed: {
@@ -60,6 +72,7 @@ export default {
     methods: {
         showTimeAxis() {
             this.ifshow = !this.ifshow;
+            this.$emit('click')
         }
     }
 }
@@ -74,19 +87,23 @@ export default {
     padding: 0 @d-normal;
 
     .title {
+        display: inline-block;
         position: absolute;
         top: 10px;
         margin: 0 auto;
         z-index: 2;
-        width: 100px;
         cursor: pointer;
 
     }
 
     .timeAxis-title {
         .title();
-        right: 0;
+        position: absolute;
         left: 0;
+        right: 0;
+        margin: 0 auto;
+        display: inline-flex;
+        justify-content: center;
     }
 
     .timeAxis-title-right {

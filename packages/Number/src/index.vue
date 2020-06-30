@@ -44,6 +44,11 @@ export default {
             }]
         },
     },
+    watch: {
+        value(newValue, oldVale) {
+            this.currentValue = newValue;
+        }
+    },
     data() {
         return {
             currentValue: this.value
