@@ -14,6 +14,7 @@ import Image from './Image'
 import Card from './Card'
 import PersonCard from './personCard'
 import Tag from './Tag'
+import Table from './Table'
 import Divider from './Divider'
 import BackTop from './BackTop'
 
@@ -42,6 +43,7 @@ const components = [
     TimeAxis,
     TIMEAxisItem,
     Tag,
+    Table,
     Divider,
     BackTop,
     Form,
@@ -86,6 +88,7 @@ export default {
     TimeAxis,
     TIMEAxisItem,
     Tag,
+    Table,
     Divider,
     BackTop,
     Form,
