@@ -68,8 +68,8 @@ export default {
 
 .if-table {
     .border-all();
-    thead,tbody,tr{
-        width: 100%;
-    }
+    display: table;
+    width: 100%;
+    text-align: left;
 }
 </style>

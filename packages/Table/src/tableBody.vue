@@ -1,15 +1,23 @@
 <template>
-    <tbody :class="classes">
-        <tr v-for="(item,index) in data" :key="index">
-            <td v-for="(titleItem,id) in title" :key="id">{{item[titleItem.key]}}</td>
-        </tr>
-    </tbody>
+<tbody :class="classes">
+    <tr v-for="(item,index) in data" :key="index">
+        <td>{{index}}</td>
+        <td v-for="(titleItem,id) in title" :key="id">{{item[titleItem.key]}}
+            <expendTd>
+                <slot>{{titleItem.render}}</slot>
+            </expendTd>
+        </td>
+    </tr>
+</tbody>
 </template>
 
 <script>
 const prefixCls = 'if-table-body'
-
+import expendTd from './expand'
 export default {
+    components: {
+        expendTd
+    },
     props: {
         title: {
             type: Array,
@@ -20,7 +28,7 @@ export default {
     },
     data() {
         return {
-
+            msg: 'Welcome to Your Vue.js App'
         }
     },
     computed: {
@@ -49,11 +57,9 @@ export default {
     },
 }
 </script>
+
 <style lang="less" scoped>
 @import './public/assets/style/index.less';
 
-.if-table-body {
-    display: block;
-    width: 100%;
-}
+.if-table-body {}
 </style>

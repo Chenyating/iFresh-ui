@@ -1,9 +1,10 @@
 <template>
-    <thead :class="classes">
-        <tr>
+<thead :class="classes">
+    <tr>
+        <th>序号</th>
         <th v-for="(item,index) in title" :key="index">{{item.title}}</th>
-        </tr>
-    </thead>
+    </tr>
+</thead>
 </template>
 
 <script>
@@ -44,13 +45,9 @@ export default {
     },
 }
 </script>
+
 <style lang="less" scoped>
 @import './public/assets/style/index.less';
 
-.if-table {
-    .border-all();
-    thead,tbody,tr{
-        width: 100%;
-    }
-}
+.if-table {}
 </style>
