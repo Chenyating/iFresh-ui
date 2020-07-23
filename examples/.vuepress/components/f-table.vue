@@ -10,9 +10,7 @@ export default {
                     title: 'Name',
                     key: 'name',
                     render: (h, params) => {
-                        return h('div', [
-                            1255
-                        ]);
+                        return h('div','123');
                     }
                 },
                 {

@@ -2,9 +2,7 @@
 <div>
     <if-input v-model="ms"></if-input>
     <br/>
-    <br/>
     <div>{{msg}}</div>
-    <if-button @click="bey">ddd</if-button>
 </div>
 </template>
 <script>

@@ -34,6 +34,17 @@
 </f-demo>
 </ClientOnly >
 
+## 文字输入
+<ClientOnly>
+<f-demo code='
+   <if-input disabled></if-input>'>
+<if-input innerText='账号:'/>
+<br/>
+<br/>
+<if-input innerText='密码:'/>
+</f-demo>
+</ClientOnly >
+
 ## 带icon的输入框
 <ClientOnly>
 <f-demo code='

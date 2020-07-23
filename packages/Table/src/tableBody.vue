@@ -3,9 +3,7 @@
     <tr v-for="(item,index) in data" :key="index">
         <td>{{index}}</td>
         <td v-for="(titleItem,id) in title" :key="id">{{item[titleItem.key]}}
-            <expendTd>
-                <slot>{{titleItem.render}}</slot>
-            </expendTd>
+            <!-- <expand /> -->
         </td>
     </tr>
 </tbody>
@@ -13,10 +11,11 @@
 
 <script>
 const prefixCls = 'if-table-body'
-import expendTd from './expand'
+import expand from './expand'
 export default {
-    components: {
-        expendTd
+    render: function (createElements) {
+        // 在 webpack 中，如果想要通过 vue， 把一个组件放到页面中去展示，vm 实例中的 render 函数可以实现
+        return createElements(expand)
     },
     props: {
         title: {

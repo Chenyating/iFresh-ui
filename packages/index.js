@@ -17,6 +17,7 @@ import Tag from './Tag'
 import Table from './Table'
 import Divider from './Divider'
 import BackTop from './BackTop'
+import Modal from './Modal'
 
 
 
@@ -47,7 +48,8 @@ const components = [
     Divider,
     BackTop,
     Form,
-    FormItem
+    FormItem,
+    Modal
 ]
 
 // 定义 install 方法，接收 Vue 作为参数。如果使用 use 注册插件，那么所有的组件都会被注册
@@ -92,5 +94,6 @@ export default {
     Divider,
     BackTop,
     Form,
-    FormItem
+    FormItem,
+    Modal
 }

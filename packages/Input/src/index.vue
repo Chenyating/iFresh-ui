@@ -1,5 +1,6 @@
 <template>
-<div :class="className" tabindex="0">
+<div :class="className" tabindex="0" :style="styles">
+    <span v-if="innerText" class="innerText">{{innerText}}</span>
     <div v-if="type!='textarea'" class="pre-input">
         <slot name="preIcon"></slot>
         <if-icon v-if="icon" :color="iconColor" :type="icon" size="20" />
@@ -74,19 +75,34 @@ export default {
             type: String,
             default: ''
         },
+        innerText: {
+            type: String,
+            default: ''
+        },
     },
     watch: {
-        value(newValue,oldVale) {
-            this.currentValue=newValue;
+        value(newValue, oldVale) {
+            this.currentValue = newValue;
         }
     },
     computed: {
         className() {
             return [`${preCls}`, {
+                [`${preCls}-innerText`]: this.innerText,
                 [`${preCls}-disabled`]: this.disabled,
                 [`${preCls}-textarea`]: this.type == 'textarea',
                 [`${preCls}-rightPadding`]: (this.clearable || this.maxlength) && this.type != 'textarea',
             }]
+        },
+        // 整体外部颜色
+        styles() {
+            let style = {};
+            if (this.innerText && this.Inputing) {
+                style = {
+                    background: `#c4deaa`,
+                };
+            }
+            return style;
         },
         ifShowClearIcon() {
             if (this.currentValue != '' && this.clearable) {
@@ -102,6 +118,7 @@ export default {
     data() {
         return {
             currentValue: this.value,
+            Inputing: false
         }
     },
     methods: {
@@ -115,6 +132,7 @@ export default {
         },
         // 主要是用于 input type=button，当被点击时触发此事件2
         clickMethod(e) {
+            this.Inputing = true;
             this.$emit('click', e)
         },
         // input输入文字3、
@@ -141,6 +159,7 @@ export default {
         },
         // 7、当input失去焦点时触发，注意：这个事件触发的前提是已经获取了焦点再失去焦点的时候会触发相应的js6
         blurMethod(e) {
+            this.Inputing = false;
             this.$emit('blur', e)
         },
         // 8、表单选中内部内容触发
@@ -158,6 +177,7 @@ export default {
 input,
 textarea {
     .t-content();
+    background: transparent;
     border: 0;
     box-sizing: border-box;
     padding: 0 @d-mini;
@@ -176,7 +196,6 @@ textarea {
     border-radius: @border-radius;
     vertical-align: middle;
     outline: 0;
-    background: @white;
 
     &:hover {
         border-radius: 5px;
@@ -256,5 +275,19 @@ textarea {
             margin-right: @d-mini;
         }
     }
+}
+
+.innerText {
+    line-height: @line-height;
+    padding: 0 @d-mini;
+    font-size: 14px;
+    transition: all .2s ease-in;
+    background: @c-primary;
+}
+
+.if-input-innerText {
+    background: @white;
+    color: @white ;
+    transition: all .5s ease-in;
 }
 </style>
