@@ -154,6 +154,7 @@ export default {
 
 .total {
     line-height: @line-height;
+    white-space: nowrap;
 }
 
 .page-item {

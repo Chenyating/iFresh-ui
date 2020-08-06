@@ -196,7 +196,7 @@ textarea {
     border-radius: @border-radius;
     vertical-align: middle;
     outline: 0;
-
+    background: @white;
     &:hover {
         border-radius: 5px;
         display: inline-flex;

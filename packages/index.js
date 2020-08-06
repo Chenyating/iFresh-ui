@@ -6,13 +6,14 @@ import { Select, Option } from './Select'
 import { Menu, MenuItem, SubMenu } from './Menu'
 import { TimeAxis, TIMEAxisItem } from './TimeAxis'
 import { Form, FormItem } from './Form'
+import { Carousel, CarouselItem } from './Form'
 import Input from './Input'
 import ifNumber from './Number'
 import Page from './Page'
 import Icon from './Icon'
 import Image from './Image'
 import Card from './Card'
-import PersonCard from './personCard'
+import Personcard from './PersonCard'
 import Tag from './Tag'
 import Table from './Table'
 import Divider from './Divider'
@@ -31,7 +32,7 @@ const components = [
     Icon,
     Image,
     Card,
-    PersonCard,
+    Personcard,
     Radio,
     RadioGroup,
     Checkbox,
@@ -49,7 +50,9 @@ const components = [
     BackTop,
     Form,
     FormItem,
-    Modal
+    Modal,
+    // Carousel,
+    // CarouselItem
 ]
 
 // 定义 install 方法，接收 Vue 作为参数。如果使用 use 注册插件，那么所有的组件都会被注册
@@ -77,7 +80,7 @@ export default {
     Icon,
     Image,
     Card,
-    PersonCard,
+    Personcard,
     Radio,
     RadioGroup,
     Checkbox,
@@ -95,5 +98,7 @@ export default {
     BackTop,
     Form,
     FormItem,
-    Modal
+    Modal,
+    // Carousel,
+    // CarouselItem
 }

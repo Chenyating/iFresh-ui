@@ -26,6 +26,10 @@ export default {
         fit: {
             type: String,
             default: ''
+        },
+        round: {
+            type: Boolean,
+            default: false
         }
     },
     data() {
@@ -43,6 +47,7 @@ export default {
             let style = {};
             style = {
                 objectFit: this.fit,
+                borderRadius: this.round?'100%':'0',
             };
             return style;
         }
