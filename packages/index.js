@@ -6,7 +6,8 @@ import { Select, Option } from './Select'
 import { Menu, MenuItem, SubMenu } from './Menu'
 import { TimeAxis, TIMEAxisItem } from './TimeAxis'
 import { Form, FormItem } from './Form'
-import { Carousel, CarouselItem } from './Form'
+// import { Carousel, CarouselItem } from './Form'
+import { Gallery, GalleryItem } from './Gallery'
 import Input from './Input'
 import ifNumber from './Number'
 import Page from './Page'
@@ -51,6 +52,8 @@ const components = [
     Form,
     FormItem,
     Modal,
+    Gallery,
+    GalleryItem
     // Carousel,
     // CarouselItem
 ]
@@ -99,6 +102,7 @@ export default {
     Form,
     FormItem,
     Modal,
+    Gallery
     // Carousel,
     // CarouselItem
 }

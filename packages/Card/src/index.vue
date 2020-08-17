@@ -47,6 +47,7 @@ export default {
     .border-all();
     padding: @d-normal;
     border-radius: 10px;
+    box-sizing: border-box;
 
     &:hover {
         .border-shadow(@c-primary);
